@@ -8,5 +8,9 @@ public class Security extends Secure.Security {
 		User user = User.find("byName", username).first();
 		return user!=null && user.password.equals(password);
 	}
+	
+	public static void onDisconnected() {
+		Welcome.index();
+	}
 
 }
