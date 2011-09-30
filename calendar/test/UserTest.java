@@ -31,7 +31,7 @@ public class UserTest extends UnitTest {
 	
 	@Test
 	public void shouldHaveAName() {
-		assertEquals("firstUser", firstUser.toString());
+		assertEquals("firstUser", firstUser.getName());
 	}
 	
 	@Test

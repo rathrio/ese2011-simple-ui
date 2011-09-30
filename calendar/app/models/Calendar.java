@@ -32,7 +32,7 @@ public class Calendar implements Iterable<Event>{
 	}
 
 	public PriorityQueue<Event> getEvents() {
-		return new PriorityQueue<Event>(this.events);
+		return this.events;
 	}
 
 	public boolean isEmpty() {
@@ -48,7 +48,7 @@ public class Calendar implements Iterable<Event>{
 	}
 	
 	public PriorityQueue<Event> getPublicEvents() {
-		return new PriorityQueue<Event>(this.publicEvents);
+		return this.publicEvents;
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Parser {
 	
-	private static SimpleDateFormat simpleDateFormatter = new SimpleDateFormat("dd.MM.yy kk.mm");
+	private static SimpleDateFormat simpleDateFormatter = new SimpleDateFormat("dd.MM.yy kk:mm");
 	
 	public static Date parseStringToDate(String strDate) {
 		Date date = null;
