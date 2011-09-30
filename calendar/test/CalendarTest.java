@@ -70,7 +70,7 @@ public class CalendarTest {
 		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, false);
 		cal.addEvent(secondEvent);
 		assertEquals(cal.getEvents().size(), 2);
-		ArrayList<Event> events = cal.getEvents();
+		ArrayList<Event> events = new ArrayList<Event>(cal.getEvents());
 		assertTrue(secondEvent.getStartDate().before(firstEvent.getStartDate()));
 		assertEquals(events.get(0), secondEvent);
 	}
