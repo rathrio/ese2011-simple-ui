@@ -12,7 +12,9 @@ import models.*;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CalendarTest {
+import play.test.UnitTest;
+
+public class CalendarTest extends UnitTest {
 	
 	private Calendar cal;
 	private User owner;

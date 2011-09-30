@@ -24,8 +24,8 @@ public class Bootstrap extends Job {
     	cals.add(user2.getCalendar());
     	cals.add(user3.getCalendar());
     	addSomeEventsToCals();
+    	addUsers();
     }
-
 
 	private void addSomeEventsToCals() {
 		Date startDate1 = Parser.parseStringToDate("18.11.11 14:00");
@@ -38,6 +38,13 @@ public class Bootstrap extends Job {
 			c.addEvent(event1);
 			c.addEvent(event2);
 		}
+		assert (event1 != null);
+	}
+	
+	private void addUsers() {
+		UserDatabase.addUser(user1);
+		UserDatabase.addUser(user2);
+		UserDatabase.addUser(user3);
 	}
  
 }

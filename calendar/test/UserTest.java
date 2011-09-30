@@ -10,9 +10,11 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
+import play.test.UnitTest;
+
 import models.*;
 
-public class UserTest {
+public class UserTest extends UnitTest {
 	
 	private User firstUser;
 	private User secondUser;

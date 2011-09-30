@@ -6,10 +6,12 @@ import java.util.Date;
 
 
 import org.junit.*;
+
+import play.test.UnitTest;
 import models.*;
 
 
-public class EventTest {
+public class EventTest extends UnitTest {
 	
 	private Date firstStartDate;
 	private Date firstEndDate;

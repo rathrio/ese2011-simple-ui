@@ -44,7 +44,7 @@ public class User {
 		return visibleEvents;
 	}
 	
-	public String toString() {
+	public String getName() {
 		return this.name;
 	}
 	

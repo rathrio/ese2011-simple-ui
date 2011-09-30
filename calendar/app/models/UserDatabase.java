@@ -2,16 +2,27 @@ package models;
 
 import java.util.ArrayList;
 
+import com.sun.tools.internal.ws.wsdl.framework.NoSuchEntityException;
+
 public class UserDatabase {
 	
-	public ArrayList<User> users;
+	public static ArrayList<User> users = new ArrayList<User>();
 	
-	public UserDatabase() {
-		this.users = new ArrayList<User>();
+	public static void addUser(User user) {
+		users.add(user);
 	}
 	
-	public void addUser(User user) {
-		this.users.add(user);
+	public static ArrayList<User> getUsers() {
+		return users;
+	}
+	
+	public static User getUserNamed(String name) {
+		for (User u : users) {
+			if (u.getName().equals(name)) {
+				return u;
+			}
+		}
+		throw new NoSuchEntityException(name);
 	}
 
 }
