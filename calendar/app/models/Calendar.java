@@ -5,11 +5,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
+import play.db.jpa.Model;
 
-public class Calendar implements Iterable<Event>{
+public class Calendar implements Iterable<Event> {
 	
-	public String name;
 	public User owner;
+	public String name;
 	public PriorityQueue<Event> events;
 	public PriorityQueue<Event> publicEvents;
 	
@@ -26,6 +27,10 @@ public class Calendar implements Iterable<Event>{
 		}
 		this.events.add(event);
 	}
+
+	public User getOwner() {
+		return this.owner;
+	}
 	
 	public String getName() {
 		return this.name;
@@ -33,6 +38,10 @@ public class Calendar implements Iterable<Event>{
 
 	public PriorityQueue<Event> getEvents() {
 		return this.events;
+	}
+	
+	public PriorityQueue<Event> getPublicEvents() {
+		return this.publicEvents;
 	}
 
 	public boolean isEmpty() {
@@ -45,10 +54,6 @@ public class Calendar implements Iterable<Event>{
 	
 	public boolean isOwner(User user) {
 		return owner.equals(user);
-	}
-	
-	public PriorityQueue<Event> getPublicEvents() {
-		return this.publicEvents;
 	}
 
 	@Override
@@ -77,10 +82,6 @@ public class Calendar implements Iterable<Event>{
 			}
 		}
 		return iterableEvents.iterator();
-	}
-
-	public User getOwner() {
-		return this.owner;
 	}
 	
 }

@@ -32,7 +32,7 @@ public class Bootstrap extends Job {
 		Event event1 = new Event("Hunting with Dad", startDate1, endDate1, true);
 		Date startDate2 = Parser.parseStringToDate("22.12.11 11:00");
 		Date endDate2 = Parser.parseStringToDate("22.12.11 14:00");
-		Event event2 = new Event("Resurrect Jesus", startDate2, endDate2, false);
+		Event event2 = new Event("Lunch with Mom", startDate2, endDate2, false);
 		for (Calendar c : cals) {
 			c.addEvent(event1);
 			c.addEvent(event2);
@@ -44,6 +44,12 @@ public class Bootstrap extends Job {
 		UserDatabase.addUser(user1);
 		UserDatabase.addUser(user2);
 		UserDatabase.addUser(user3);
+		user1.setPassword("dangerousdan");
+		user2.setPassword("texasman");
+		user3.setPassword("nopeitschucktesta");
+		user1.save();
+		user2.save();
+		user3.save();
 	}
  
 }

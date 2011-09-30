@@ -8,11 +8,13 @@ import java.util.*;
 import models.*;
 import models.Calendar;
 
+@With(Secure.class)
 public class Application extends Controller {
 
     public static void index() {
-    	ArrayList<User> users = UserDatabase.getUsers();
-        render(users);
+    	User user = UserDatabase.getUserNamed(Security.connected());
+    	ArrayList<User> users = UserDatabase.getUsersExcept(user);
+        render(user, users);
     }
     
     public static void displayEvents(String name) {

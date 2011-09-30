@@ -5,10 +5,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import play.db.jpa.Model;
+
+@Entity
+public class User extends Model {
 	
 	public String name;
-	public Calendar cal;
+	@Transient public Calendar cal;
+	public String password;
 	
 	public User(String name) {
 		this.name = name;
@@ -50,6 +58,10 @@ public class User {
 	
 	public Calendar getCalendar() {
 		return this.cal;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	private boolean getBooleanInput() {

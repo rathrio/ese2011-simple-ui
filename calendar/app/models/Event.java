@@ -3,6 +3,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+import play.db.jpa.Model;
 
 public class Event implements Comparable<Event> {
 	
