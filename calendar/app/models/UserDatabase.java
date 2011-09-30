@@ -9,5 +9,9 @@ public class UserDatabase {
 	public UserDatabase() {
 		this.users = new ArrayList<User>();
 	}
+	
+	public void addUser(User user) {
+		this.users.add(user);
+	}
 
 }

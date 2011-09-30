@@ -2,6 +2,7 @@ package models;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 
@@ -30,15 +31,15 @@ public class Calendar implements Iterable<Event>{
 		return this.name;
 	}
 
-	public ArrayList<Event> getEvents() {
-		return new ArrayList<Event>(this.events);
+	public PriorityQueue<Event> getEvents() {
+		return new PriorityQueue<Event>(this.events);
 	}
 
 	public boolean isEmpty() {
 		return this.events.isEmpty();
 	}
 
-	public Object getNextEvent() {
+	public Event getNextEvent() {
 		return this.events.peek();
 	}
 	
@@ -46,8 +47,8 @@ public class Calendar implements Iterable<Event>{
 		return owner.equals(user);
 	}
 	
-	public ArrayList<Event> getPublicEvents() {
-		return new ArrayList<Event>(this.publicEvents);
+	public PriorityQueue<Event> getPublicEvents() {
+		return new PriorityQueue<Event>(this.publicEvents);
 	}
 
 	@Override
@@ -78,7 +79,7 @@ public class Calendar implements Iterable<Event>{
 		return iterableEvents.iterator();
 	}
 
-	public Object getOwner() {
+	public User getOwner() {
 		return this.owner;
 	}
 	

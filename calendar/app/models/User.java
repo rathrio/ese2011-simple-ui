@@ -9,12 +9,10 @@ public class User {
 	
 	public String name;
 	public Calendar cal;
-	public SimpleDateFormat simpleDateFormatter;
 	
 	public User(String name) {
 		this.name = name;
 		this.cal = new Calendar(this, "Home");
-		this.simpleDateFormatter = new SimpleDateFormat("dd.MM.yy kk:mm");
 	}
 	
 	public void createEvent() {
@@ -68,19 +66,8 @@ public class User {
 	private Date getDateInput() {
 		//TODO
 		String input = ""; //implement input method for user interaction
-		Date inputDate = parseStringToDate(input);
+		Date inputDate = Parser.parseStringToDate(input);
 		return inputDate;
-	}
-	
-	@ForTestingOnly
-	public Date parseStringToDate(String strDate) {
-		Date date = null;
-		try {
-			date = simpleDateFormatter.parse(strDate);
-		} catch (ParseException e) {
-			System.out.println(e);
-		}
-		return date;
 	}
 
 }

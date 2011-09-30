@@ -29,12 +29,12 @@ public class CalendarTest {
 		owner = new User("testUser");
 		otherUser = new User("otherUser");
 		cal = owner.getCalendar();
-		firstStartDate = owner.parseStringToDate("01.01.01 12:00");
-		firstEndDate = owner.parseStringToDate("01.01.01 13:00");
-		secondStartDate = owner.parseStringToDate("01.01.01 06:00");
-		secondEndDate = owner.parseStringToDate("01.01.01 07:00");
-		thirdStartDate = owner.parseStringToDate("01.01.01 19:00");
-		thirdEndDate = owner.parseStringToDate("01.01.01 23:00");
+		firstStartDate = Parser.parseStringToDate("01.01.01 12:00");
+		firstEndDate = Parser.parseStringToDate("01.01.01 13:00");
+		secondStartDate = Parser.parseStringToDate("01.01.01 06:00");
+		secondEndDate = Parser.parseStringToDate("01.01.01 07:00");
+		thirdStartDate = Parser.parseStringToDate("01.01.01 19:00");
+		thirdEndDate = Parser.parseStringToDate("01.01.01 23:00");
 	}
 	
 	@Test
@@ -77,12 +77,12 @@ public class CalendarTest {
 	
 	@Test
 	public void shouldGetIterator() {
-		firstStartDate = owner.parseStringToDate("12.04.95 11:55");
-		firstEndDate = owner.parseStringToDate("12.04.95 13:00");
+		firstStartDate = Parser.parseStringToDate("12.04.95 11:55");
+		firstEndDate = Parser.parseStringToDate("12.04.95 13:00");
 		Event firstEvent = new Event("firstEvent", firstStartDate, firstEndDate, true);
 		
-		secondStartDate = owner.parseStringToDate("14.04.95 15:00");
-		secondEndDate = owner.parseStringToDate("14.04.95 18:00");
+		secondStartDate = Parser.parseStringToDate("14.04.95 15:00");
+		secondEndDate = Parser.parseStringToDate("14.04.95 18:00");
 		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, true);
 		
 		cal.addEvent(firstEvent);
@@ -95,16 +95,16 @@ public class CalendarTest {
 	
 	@Test
 	public void shouldNotIterateOverSecondEvent() {
-		firstStartDate = owner.parseStringToDate("18.04.95 11:55");
-		firstEndDate = owner.parseStringToDate("20.04.95 13:00");
+		firstStartDate = Parser.parseStringToDate("18.04.95 11:55");
+		firstEndDate = Parser.parseStringToDate("20.04.95 13:00");
 		Event firstEvent = new Event("firstEvent", firstStartDate, firstEndDate, true);
 		
-		secondStartDate = owner.parseStringToDate("24.04.95 15:00");
-		secondEndDate = owner.parseStringToDate("30.04.95 18:00");
+		secondStartDate = Parser.parseStringToDate("24.04.95 15:00");
+		secondEndDate = Parser.parseStringToDate("30.04.95 18:00");
 		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, false);
 		
-		thirdStartDate = owner.parseStringToDate("30.04.95 15:00");
-		thirdEndDate = owner.parseStringToDate("02.05.95 18:00");
+		thirdStartDate = Parser.parseStringToDate("30.04.95 15:00");
+		thirdEndDate = Parser.parseStringToDate("02.05.95 18:00");
 		Event thirdEvent = new Event("thirdEvent", thirdStartDate, thirdEndDate, true);
 		
 		cal.addEvent(firstEvent);
@@ -118,23 +118,23 @@ public class CalendarTest {
 	
 	@Test
 	public void shouldGetIteratorOverEventsAfterSpecificDate() {
-		firstStartDate = owner.parseStringToDate("18.04.95 11:55");
-		firstEndDate = owner.parseStringToDate("20.04.95 13:00");
+		firstStartDate = Parser.parseStringToDate("18.04.95 11:55");
+		firstEndDate = Parser.parseStringToDate("20.04.95 13:00");
 		Event firstEvent = new Event("firstEvent", firstStartDate, firstEndDate, true);
 		
-		secondStartDate = owner.parseStringToDate("24.04.95 15:00");
-		secondEndDate = owner.parseStringToDate("30.04.95 18:00");
+		secondStartDate = Parser.parseStringToDate("24.04.95 15:00");
+		secondEndDate = Parser.parseStringToDate("30.04.95 18:00");
 		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, true);
 		
-		thirdStartDate = owner.parseStringToDate("30.04.95 15:00");
-		thirdEndDate = owner.parseStringToDate("02.05.95 18:00");
+		thirdStartDate = Parser.parseStringToDate("30.04.95 15:00");
+		thirdEndDate = Parser.parseStringToDate("02.05.95 18:00");
 		Event thirdEvent = new Event("thirdEvent", thirdStartDate, thirdEndDate, true);
 		
 		cal.addEvent(firstEvent);
 		cal.addEvent(secondEvent);
 		cal.addEvent(thirdEvent);
 		
-		Date testDate = owner.parseStringToDate("22.04.95 16:00");
+		Date testDate = Parser.parseStringToDate("22.04.95 16:00");
 		
 		Iterator<Event> eventsIterator = cal.getEventsAfter(otherUser, testDate);
 		assertEquals(secondEvent, eventsIterator.next());
