@@ -7,10 +7,10 @@ import java.util.PriorityQueue;
 
 public class Calendar implements Iterable<Event>{
 	
-	private String name;
-	private User owner;
-	private PriorityQueue<Event> events;
-	private PriorityQueue<Event> publicEvents;
+	public String name;
+	public User owner;
+	public PriorityQueue<Event> events;
+	public PriorityQueue<Event> publicEvents;
 	
 	public Calendar(User owner, String name) {
 		this.owner = owner;

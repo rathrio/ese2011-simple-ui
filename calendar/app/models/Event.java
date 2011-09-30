@@ -6,10 +6,10 @@ import java.util.Date;
 
 public class Event implements Comparable<Event> {
 	
-	private String name;
-	private Date startDate;
-	private Date endDate;
-	private boolean isPublic;
+	public String name;
+	public Date startDate;
+	public Date endDate;
+	public boolean isPublic;
 	
 	
 	public Event(String name, Date startDate, Date endDate, boolean isPublic) {

@@ -7,9 +7,9 @@ import java.util.Date;
 
 public class User {
 	
-	private String name;
-	private Calendar cal;
-	private SimpleDateFormat simpleDateFormatter;
+	public String name;
+	public Calendar cal;
+	public SimpleDateFormat simpleDateFormatter;
 	
 	public User(String name) {
 		this.name = name;
