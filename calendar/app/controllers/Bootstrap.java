@@ -15,7 +15,6 @@ public class Bootstrap extends Job {
 	User user1, user2, user3;
 	ArrayList<Calendar> cals = new ArrayList<Calendar>();
 	
- 
     public void doJob() {
     	user1 = new User("Dangerous Dan");
     	user2 = new User("TexasMan");
