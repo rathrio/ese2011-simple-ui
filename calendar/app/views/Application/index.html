@@ -1,11 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<h1>${user.name}'s Calendar</h1>
+<h1>${user.name}'s Calendars</h1>
 
+#{list items:cals, as:'cal'}
+	<li>
+	<a href="@{Application.displayEvents(user.name, cal.name)}">${cal.name} Calendar</a>
+	</li>
+#{/list}
+</br>
 #{list items:users, as:'user'}
 	<p>
-		<a href="@{Application.displayEvents(user.name)}">${user.name}'s Calendar</a> 
+		<a href="@{Application.displayCalendars(user.name)}">${user.name}'s Calendars</a> 
 	</p>
 #{/list}
 

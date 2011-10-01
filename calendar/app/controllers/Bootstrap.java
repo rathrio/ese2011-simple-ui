@@ -19,12 +19,19 @@ public class Bootstrap extends Job {
     	user1 = new User("Dangerous Dan");
     	user2 = new User("TexasMan");
     	user3 = new User("Chuck Testa"); 
-    	cals.add(user1.getCalendar());
-    	cals.add(user2.getCalendar());
-    	cals.add(user3.getCalendar());
+    	createCals();
     	addSomeEventsToCals();
     	addUsers();
     }
+
+	private void createCals() {
+		user1.createCalendar("Dangerous Plan");
+		user2.createCalendar("Redneck Stuff");
+		user3.createCalendar("Hunting");
+		cals.addAll(user1.getCalendars());
+    	cals.addAll(user2.getCalendars());
+    	cals.addAll(user3.getCalendars());
+	}
 
 	private void addSomeEventsToCals() {
 		Date startDate1 = Parser.parseStringToDate("18.11.11 14:00");

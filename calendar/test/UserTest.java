@@ -25,7 +25,8 @@ public class UserTest extends UnitTest {
 	public void init() {
 		this.firstUser = new User("firstUser");
 		this.secondUser = new User("secondUser");
-		this.firstCalendar = firstUser.getCalendar();
+		firstUser.createCalendar("Home");
+		this.firstCalendar = firstUser.getCalendars().get(0);
 		this.eventsVisibleToSecondUser = new ArrayList<Event>();
 	}
 	
@@ -36,7 +37,7 @@ public class UserTest extends UnitTest {
 	
 	@Test
 	public void shouldInitCalendar() {
-		assertFalse(firstUser.getCalendar().equals(null));
+		assertFalse(firstUser.getCalendars().get(0).equals(null));
 	}
 	
 	@Test

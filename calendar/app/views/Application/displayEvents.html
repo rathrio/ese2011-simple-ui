@@ -1,11 +1,7 @@
-
-<h1>${user.name}'s ${cal.name} Calendar </h1>
+<h1>${cal.name}</h1>
 #{list events, as:'event'}
 	<li>
-	${event.name} from ${event.startDate.format('dd.MM.yy HH:mm')} to ${event.endDate.format('dd.MM.yy HH:mm')}
+	${event.name}<br> FROM: ${event.startDate.format('dd.MM.yy HH:mm')} TO: ${event.endDate.format('dd.MM.yy HH:mm')}
 	</li>
 #{/list}
-
-</br>
-
-<a href="@{Application.index}">Back to users</a>
+<a href="@{Application.displayCalendars(cal.owner.name)}">back</a>

@@ -30,7 +30,8 @@ public class CalendarTest extends UnitTest {
 	public void init() {
 		owner = new User("testUser");
 		otherUser = new User("otherUser");
-		cal = owner.getCalendar();
+		owner.createCalendar("Home");
+		cal = owner.getCalendars().get(0);
 		firstStartDate = Parser.parseStringToDate("01.01.01 12:00");
 		firstEndDate = Parser.parseStringToDate("01.01.01 13:00");
 		secondStartDate = Parser.parseStringToDate("01.01.01 06:00");
