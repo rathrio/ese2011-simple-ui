@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<testsuite failures="0" time="0.006" errors="0" skipped="0" tests="7" name="CalendarTest">
+<testsuite failures="0" time="0.008" errors="0" skipped="0" tests="7" name="CalendarTest">
   <testcase classname="CalendarTest" name="shouldHaveNameHomeAndOwner" time="0.001">
       </testcase>
-  <testcase classname="CalendarTest" name="shouldAddEvent" time="0">
+  <testcase classname="CalendarTest" name="shouldAddEvent" time="0.001">
       </testcase>
   <testcase classname="CalendarTest" name="shouldGetNextEvent" time="0.001">
       </testcase>
@@ -11,7 +11,7 @@
       </testcase>
   <testcase classname="CalendarTest" name="shouldGetIterator" time="0.001">
       </testcase>
-  <testcase classname="CalendarTest" name="shouldNotIterateOverSecondEvent" time="0.001">
+  <testcase classname="CalendarTest" name="shouldNotIterateOverSecondEvent" time="0.002">
       </testcase>
   <testcase classname="CalendarTest" name="shouldGetIteratorOverEventsAfterSpecificDate" time="0.001">
       </testcase>

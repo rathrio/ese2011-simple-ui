@@ -1,7 +1,42 @@
-<h1>${cal.name}</h1>
+<div>
+<h1 style="background:grey">${user.name}'s ${cal.name} Calendar</h1>
 #{list events, as:'event'}
 	<li>
-	${event.name}<br> FROM: ${event.startDate.format('dd.MM.yy HH:mm')} TO: ${event.endDate.format('dd.MM.yy HH:mm')}
+	${event.name} </br> FROM: ${event.startDate.format('dd.MM.yy HH:mm')} TO: ${event.endDate.format('dd.MM.yy HH:mm')}
 	</li>
 #{/list}
-<a href="@{Application.displayCalendars(cal.owner.name)}">back</a>
+</div>
+
+#{if isConnected}
+		<div>
+	#{form @Application.createEvent()}
+		<p>
+    		<input type="hidden" name="calendarName" value="${cal.name}" />
+    	</p)>
+		<p>
+			<label for="eventName">Event Name: </label> </br>
+			<input type="text" name="eventName"/>
+		</p>
+		<p>
+			<label for="startDate">Start Date (dd.MM.yy HH:mm): </label> </br>
+			<input type="text" name="startDate"/>
+		</p>
+		<p>
+			<label for="endDate">End Date (dd.MM.yy HH:mm): </label> </br>
+			<input type="text" name="endDate"/>
+		</p>
+		<p>
+			<input type="submit" value="create Event">
+		</p>
+	#{/form}
+	</div>
+#{/if}
+
+
+
+#{if isConnected}
+ 	<a href="@{Application.index()}">Back</a>
+#{/if}
+#{else}
+	<a href="@{Application.displayCalendars(user.name)}">Back</a>
+#{/else}

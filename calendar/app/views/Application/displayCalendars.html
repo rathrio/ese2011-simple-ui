@@ -1,10 +1,12 @@
 
-<h1>${user.name}'s Calendars </h1>
+<div>
+<h1 style="background:grey">${user.name}'s Calendars </h1>
 #{list cals, as:'cal'}
 	<li>
 	<a href="@{Application.displayEvents(user.name, cal.name)}">${cal.name} Calendar</a>
 	</li>
 #{/list}
+</div>
 
 </br>
 

@@ -27,12 +27,26 @@ public class Application extends Controller {
     public static void displayEvents(String username, String calendarname) {
     	User user = UserDatabase.getUserNamed(username);
     	Calendar cal = user.getCalNamed(calendarname);
-    	Iterator<Event> eventsIterator = cal.iterator();
-    	List<Event> events = new LinkedList<Event>();
+    	User connectedUser = UserDatabase.getUserNamed(Security.connected());
+    	Iterator<Event> eventsIterator = cal.getEventsAfter(connectedUser, new Date());
+    	ArrayList<Event> events = new ArrayList<Event>();
     	while (eventsIterator.hasNext()) {
     		events.add(eventsIterator.next());
     	}
-    	render(cal, events);
+    	Boolean isConnected = isConnectedUser(username);
+    	render(user, cal, events, isConnected);
+    }
+    
+    public static void createEvent(String calendarName, String eventName, String startDate, String endDate) {
+    	User user = UserDatabase.getUserNamed(Security.connected());
+    	Calendar cal = user.getCalNamed(calendarName);
+    	cal.createEvent(eventName, startDate, endDate);
+    	displayEvents(user.getName(), calendarName);
+    }
+    
+    public static boolean isConnectedUser(String username) {
+    	String connectedUsername = Security.connected();
+    	return username.equals(connectedUsername);
     }
 
 }

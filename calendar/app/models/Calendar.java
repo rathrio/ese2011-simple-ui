@@ -1,5 +1,7 @@
 package models;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -26,6 +28,8 @@ public class Calendar implements Iterable<Event> {
 			this.publicEvents.add(event);
 		}
 		this.events.add(event);
+		Arrays.sort(this.events.toArray());
+		Arrays.sort(this.publicEvents.toArray());
 	}
 
 	public User getOwner() {
@@ -37,10 +41,12 @@ public class Calendar implements Iterable<Event> {
 	}
 
 	public PriorityQueue<Event> getEvents() {
+		Arrays.sort(this.events.toArray());
 		return this.events;
 	}
 	
 	public PriorityQueue<Event> getPublicEvents() {
+		Arrays.sort(this.publicEvents.toArray());
 		return this.publicEvents;
 	}
 
@@ -58,17 +64,13 @@ public class Calendar implements Iterable<Event> {
 
 	@Override
 	public Iterator<Event> iterator() {
-		ArrayList<Event> orderedEvents = new ArrayList<Event>();
-		PriorityQueue<Event> events = new PriorityQueue<Event>(this.events);
-		while (!events.isEmpty()) {
-			orderedEvents.add(events.poll());
-		}
-		return orderedEvents.iterator();
+		Arrays.sort(this.events.toArray());
+		return this.events.iterator();
 	}
 
-	public Iterator<Event> getEventsAfter(User user, Date startingDate)  {
+	public Iterator<Event> getEventsAfter(User receivingUser, Date startingDate)  {
 		ArrayList<Event> iterableEvents = new ArrayList<Event>();
-		if (user.equals(this.owner)) {
+		if (receivingUser.equals(this.owner)) {
 			for (Event event : this.events) {
 				if (!event.getStartDate().before(startingDate)) {
 					iterableEvents.add(event);
@@ -82,6 +84,13 @@ public class Calendar implements Iterable<Event> {
 			}
 		}
 		return iterableEvents.iterator();
+	}
+
+	public void createEvent(String eventName, String startDate, String endDate) {
+		Date sDate = Parser.parseStringToDate(startDate);
+    	Date eDate = Parser.parseStringToDate(endDate);
+    	Event newEvent = new Event(eventName, sDate, eDate, true);
+    	this.addEvent(newEvent);
 	}
 	
 }

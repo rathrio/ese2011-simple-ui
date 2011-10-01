@@ -24,16 +24,6 @@ public class User extends Model {
 		this.name = name;
 		this.cals = new ArrayList<Calendar>();
 	}
-	
-	public void createEvent(Calendar cal) {
-		String eventName = getStringInput();
-		Date startDate = getDateInput();
-		Date endDate = getDateInput();
-		boolean isPublic = getBooleanInput();
-		assert (startDate.before(endDate));
-		Event event = new Event(eventName, startDate, endDate, isPublic);
-		cal.addEvent(event);
-	}
 
 	public ArrayList<Event> getVisibleEventsOnSpecificDayFrom(User user, Date date) {
 		ArrayList<Calendar> cals = user.getCalendars();
@@ -68,24 +58,6 @@ public class User extends Model {
 	
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
-	private boolean getBooleanInput() {
-		String input = ""; //implement input method for user interaction
-		return input.equalsIgnoreCase("y");
-	}
-
-	private String getStringInput() {
-		//TODO
-		String input = ""; //implement input method for user interaction
-		return input;
-	}
-
-	private Date getDateInput() {
-		//TODO
-		String input = ""; //implement input method for user interaction
-		Date inputDate = Parser.parseStringToDate(input);
-		return inputDate;
 	}
 
 	public void createCalendar(String name) {
