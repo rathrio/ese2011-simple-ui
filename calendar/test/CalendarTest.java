@@ -55,25 +55,15 @@ public class CalendarTest extends UnitTest {
 	}
 	
 	@Test
-	public void shouldGetNextEvent() {
-		Event firstEvent = new Event("dinner with your ex", firstStartDate, firstEndDate, false);
-		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, false);
-		cal.addEvent(firstEvent);
-		assertEquals(cal.getNextEvent(), firstEvent);
-		cal.addEvent(secondEvent);
-		assertEquals(cal.getNextEvent(), secondEvent);
-	}
-	
-	@Test
 	public void shouldAddSecondEventBeforeFirstEvent() {
 		assertTrue(cal.isEmpty());
-		Event firstEvent = new Event("firstEvent", firstStartDate, firstEndDate, false);
+		Event firstEvent = new Event("firstEvent", firstStartDate, firstEndDate, true);
 		cal.addEvent(firstEvent);
 		assertEquals(cal.getEvents().size(), 1);
-		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, false);
+		Event secondEvent = new Event("secondEvent", secondStartDate, secondEndDate, true);
 		cal.addEvent(secondEvent);
 		assertEquals(cal.getEvents().size(), 2);
-		ArrayList<Event> events = new ArrayList<Event>(cal.getEvents());
+		ArrayList<Event> events = cal.getEvents();
 		assertTrue(secondEvent.getStartDate().before(firstEvent.getStartDate()));
 		assertEquals(events.get(0), secondEvent);
 	}

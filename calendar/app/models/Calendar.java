@@ -1,6 +1,5 @@
 package models;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
@@ -13,14 +12,14 @@ public class Calendar implements Iterable<Event> {
 	
 	public User owner;
 	public String name;
-	public PriorityQueue<Event> events;
-	public PriorityQueue<Event> publicEvents;
+	public ArrayList<Event> events;
+	public ArrayList<Event> publicEvents;
 	
 	public Calendar(User owner, String name) {
 		this.owner = owner;
 		this.name = name;
-		this.events = new PriorityQueue<Event>();
-		this.publicEvents = new PriorityQueue<Event>();
+		this.events = new ArrayList<Event>();
+		this.publicEvents = new ArrayList<Event>();
 	}
 	
 	public void addEvent(Event event) {
@@ -28,8 +27,8 @@ public class Calendar implements Iterable<Event> {
 			this.publicEvents.add(event);
 		}
 		this.events.add(event);
-		Arrays.sort(this.events.toArray());
-		Arrays.sort(this.publicEvents.toArray());
+		Collections.sort(this.events);
+		Collections.sort(this.publicEvents);
 	}
 
 	public User getOwner() {
@@ -40,22 +39,18 @@ public class Calendar implements Iterable<Event> {
 		return this.name;
 	}
 
-	public PriorityQueue<Event> getEvents() {
-		Arrays.sort(this.events.toArray());
+	public ArrayList<Event> getEvents() {
+		Collections.sort(this.events);
 		return this.events;
 	}
 	
-	public PriorityQueue<Event> getPublicEvents() {
-		Arrays.sort(this.publicEvents.toArray());
+	public ArrayList<Event> getPublicEvents() {
+		Collections.sort(this.publicEvents);
 		return this.publicEvents;
 	}
 
 	public boolean isEmpty() {
 		return this.events.isEmpty();
-	}
-
-	public Event getNextEvent() {
-		return this.events.peek();
 	}
 	
 	public boolean isOwner(User user) {
@@ -64,7 +59,7 @@ public class Calendar implements Iterable<Event> {
 
 	@Override
 	public Iterator<Event> iterator() {
-		Arrays.sort(this.events.toArray());
+		Collections.sort(this.events);
 		return this.events.iterator();
 	}
 
@@ -83,12 +78,16 @@ public class Calendar implements Iterable<Event> {
 				}
 			}
 		}
+		Collections.sort(iterableEvents);
 		return iterableEvents.iterator();
 	}
 
 	public void createEvent(String eventName, String startDate, String endDate) {
 		Date sDate = Parser.parseStringToDate(startDate);
     	Date eDate = Parser.parseStringToDate(endDate);
+    	if (eDate.before(sDate)) {
+    		
+    	}
     	Event newEvent = new Event(eventName, sDate, eDate, true);
     	this.addEvent(newEvent);
 	}
