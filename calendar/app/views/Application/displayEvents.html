@@ -1,10 +1,10 @@
 <div>
-<h1 style="background:grey">${user.name}'s ${cal.name} Calendar</h1>
-#{list events, as:'event'}
-	<li>
-	${event.name} </br> FROM: ${event.startDate.format('dd.MM.yy HH:mm')} TO: ${event.endDate.format('dd.MM.yy HH:mm')}
-	</li>
-#{/list}
+		<h1 style="background:grey">${user.name}'s ${cal.name} Calendar</h1>
+	#{list events, as:'event'}
+		<li>
+		${event.name} </br> FROM: ${event.startDate.format('dd.MM.yy HH:mm')} TO: ${event.endDate.format('dd.MM.yy HH:mm')}
+		</li>
+	#{/list}
 </div>
 
 #{if isConnected}
@@ -12,7 +12,7 @@
 	#{form @Application.createEvent()}
 		<p>
     		<input type="hidden" name="calendarName" value="${cal.name}" />
-    	</p)>
+    	</p>
 		<p>
 			<label for="eventName">Event Name: </label> </br>
 			<input type="text" name="eventName"/>
@@ -26,8 +26,8 @@
 			<input type="text" name="endDate"/>
 		</p>
 		<p>
-			<label for="isPublic">Make public: </label> </br>
 			<input type="checkbox" name="isPublic"/>
+			<label for="isPublic">Make public</label>
 		</p>
 		<p>
 			<input type="submit" value="create Event">
@@ -35,8 +35,6 @@
 	#{/form}
 	</div>
 #{/if}
-
-
 
 #{if isConnected}
  	<a href="@{Application.index()}">Back</a>

@@ -37,10 +37,16 @@ public class Application extends Controller {
     	render(user, cal, events, isConnected);
     }
     
-    public static void createEvent(String calendarName, String eventName, String startDate, String endDate) {
+    public static void createCalendar(String calendarName) {
+    	User user = UserDatabase.getUserNamed(Security.connected());
+    	user.createCalendar(calendarName);
+    	index();
+    }
+    
+    public static void createEvent(String calendarName, String eventName, String startDate, String endDate, boolean isPublic) {
     	User user = UserDatabase.getUserNamed(Security.connected());
     	Calendar cal = user.getCalNamed(calendarName);
-    	cal.createEvent(eventName, startDate, endDate);
+    	cal.createEvent(eventName, startDate, endDate, isPublic);
     	displayEvents(user.getName(), calendarName);
     }
     

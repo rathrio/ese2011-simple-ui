@@ -82,13 +82,13 @@ public class Calendar implements Iterable<Event> {
 		return iterableEvents.iterator();
 	}
 
-	public void createEvent(String eventName, String startDate, String endDate) {
+	public void createEvent(String eventName, String startDate, String endDate, boolean isPublic) {
 		Date sDate = Parser.parseStringToDate(startDate);
     	Date eDate = Parser.parseStringToDate(endDate);
     	if (eDate.before(sDate)) {
-    		
+    		System.out.println("FOOL");
     	}
-    	Event newEvent = new Event(eventName, sDate, eDate, true);
+    	Event newEvent = new Event(eventName, sDate, eDate, isPublic);
     	this.addEvent(newEvent);
 	}
 	
