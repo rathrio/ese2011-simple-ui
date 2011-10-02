@@ -61,8 +61,10 @@ public class User extends Model {
 	}
 
 	public void createCalendar(String name) {
-		Calendar cal = new Calendar(this, name);
-		this.cals.add(cal);
+		if (name.trim().length() > 0){
+			Calendar cal = new Calendar(this, name);
+			this.cals.add(cal);
+		}
 	}
 
 	public Calendar getCalNamed(String calendarname) {

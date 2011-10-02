@@ -1,5 +1,10 @@
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/calendar.css'}" />
+</head>
+
+<body>
 <div>
-		<h1 style="background:grey">${user.name}'s ${cal.name} Calendar</h1>
+		<h2>${user.name}'s ${cal.name} Calendar</h2>
 	#{list events, as:'event'}
 		<li>
 		${event.name} </br> FROM: ${event.startDate.format('dd.MM.yy HH:mm')} TO: ${event.endDate.format('dd.MM.yy HH:mm')}
@@ -14,15 +19,15 @@
     		<input type="hidden" name="calendarName" value="${cal.name}" />
     	</p>
 		<p>
-			<label for="eventName">Event Name: </label> </br>
+			<label for="eventName">Event Name: </label> <br/>
 			<input type="text" name="eventName"/>
 		</p>
 		<p>
-			<label for="startDate">Start Date (dd.MM.yy HH:mm): </label> </br>
+			<label for="startDate">Start Date (dd.MM.yy HH:mm): </label> <br/>
 			<input type="text" name="startDate"/>
 		</p>
 		<p>
-			<label for="endDate">End Date (dd.MM.yy HH:mm): </label> </br>
+			<label for="endDate">End Date (dd.MM.yy HH:mm): </label> <br/>
 			<input type="text" name="endDate"/>
 		</p>
 		<p>
@@ -42,3 +47,7 @@
 #{else}
 	<a href="@{Application.displayCalendars(user.name)}">Back</a>
 #{/else}
+<div id=logout>
+<a href="@{Secure.logout()}">logout</a>
+</div>
+</body>

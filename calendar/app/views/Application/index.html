@@ -1,32 +1,35 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+<head>
+<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/calendar.css'}" />
+</head>
 
-<div>
-<h1 style="background:grey">${user.name}'s Calendars</h1>
-#{list items:cals, as:'cal'}
-	<li>
-	<a href="@{Application.displayEvents(user.name, cal.name)}">${cal.name} Calendar</a>
-	</li>
-#{/list}
+<body>
+<div id=userBox>
+	<div id=usersCalendars>
+	<h2>${user.name}'s Calendars</h2>
+	#{list items:cals, as:'cal'}
+		<li>
+		<a href="@{Application.displayEvents(user.name, cal.name)}">${cal.name} Calendar</a>
+		</li>
+	#{/list}
+	</div>
+	
+	<div id=createCalendarBox>
+			<div id=createCalendar>
+		#{form @Application.createCalendar()}
+			<p>
+				<label for="calendarName">Calendar Name: </label> </br>
+				<input type="text" name="calendarName"/>
+				<input type="submit" value="create Calendar">
+			</p>
+		#{/form}
+		</div>
+	</div>
 </div>
 
-
-<div>
-#{form @Application.createCalendar()}
-	<p>
-		<label for="calendarName">Calendar Name: </label> </br>
-		<input type="text" name="calendarName"/>
-	</p>
-	<p>
-		<input type="submit" value="create Calendar">
-	</p>
-#{/form}
-</div>
-
-</br>
-
-<div>
-<h2 style="background:grey">Other users</h2>
+<div id=otherUsers>
+<h2>Other users</h2>
 #{list items:users, as:'user'}
 	<p>
 		<a href="@{Application.displayCalendars(user.name)}">${user.name}'s Calendars</a> 
@@ -36,4 +39,8 @@
 
 </br>
 
+<div id=logout>
 <a href="@{Secure.logout()}">logout</a>
+</div>
+
+</body>
