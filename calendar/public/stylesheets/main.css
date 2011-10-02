@@ -18,6 +18,17 @@ A:HOVER {
 body {
 	background: black;
 	font-family: sans-serif;
+	margin: 0 auto;
+}
+
+#wrapper {
+	width:750px;
+	height:500px;
+	position: absolute;
+	top: 38%;
+	left:55%;
+	margin-top:-250px;
+	margin-left:-400px;
 }
 
 #welcomeBox {
@@ -50,7 +61,7 @@ body {
 	background: white;
 	border: 4px solid grey;
 	padding: 20px;
-	min-width: 300px;
+	width: 300px;
 	min-height: 200px;
 	margin-bottom: 14px;
 }
@@ -61,7 +72,6 @@ body {
 	padding: 20px;
 	max-width: 300px;
 	top: 280px;
-	left: 20px;
 	clear: left;
 }
 
@@ -100,7 +110,7 @@ body {
 	text-align: center;
 	padding: 10px;
 	min-width: 50px;
-	position: fixed;
+	position: absolute;
 	top: 20px;
 	left: 635px;
 }
@@ -111,7 +121,7 @@ body {
 	text-align: center;
 	padding: 10px;
 	min-width: 50px;
-	position: fixed;
+	position: absolute;
 	top: 70px;
 	left: 635px;
 }

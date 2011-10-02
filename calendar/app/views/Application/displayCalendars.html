@@ -3,22 +3,24 @@
 </head>
 
 <body>
-<div id=userBox>
-	<div id=displayCalendars>
-	<h2>${user.name}'s Calendars </h2>
-	#{list cals, as:'cal'}
-		<li>
-		<a href="@{Application.displayEvents(user.name, cal.name)}">${cal.name} Calendar</a>
-		</li>
-	#{/list}
+<div id=wrapper>
+	<div id=userBox>
+		<div id=displayCalendars>
+		<h2>${user.name}'s Calendars </h2>
+		#{list cals, as:'cal'}
+			<li>
+			<a href="@{Application.displayEvents(user.name, cal.name)}">${cal.name} Calendar</a>
+			</li>
+		#{/list}
+		</div>
 	</div>
-</div>
-
-<div id=back>
-<a href="@{Application.index}"><<</a>
-</div>
-
-<div id=logout>
-<a href="@{Secure.logout()}">logout</a>
+	
+	<div id=back>
+	<a href="@{Application.index}"><<</a>
+	</div>
+	
+	<div id=logout>
+	<a href="@{Secure.logout()}">logout</a>
+	</div>
 </div>
 </body>
