@@ -78,7 +78,7 @@ body {
 #otherUsers {
 	background: white;
 	border: 4px solid grey;
-	max-width: 300px;
+	min-width: 195px;
 	min-height: 382px;
 	position: absolute;
 	padding: 20px;
