@@ -93,7 +93,6 @@ public class Calendar implements Iterable<Event> {
             	}
         	}
     	}
-    	
 	}
 	
 }
