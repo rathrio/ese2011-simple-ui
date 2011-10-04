@@ -12,25 +12,28 @@ import models.*;
 @OnApplicationStart
 public class Bootstrap extends Job {
 	
-	User user1, user2, user3;
+	User user1, user2, user3, user4;
 	ArrayList<Calendar> cals = new ArrayList<Calendar>();
 	
     public void doJob() {
     	user1 = new User("DangerousDan");
     	user2 = new User("TexasMan");
-    	user3 = new User("ChuckTesta"); 
+    	user3 = new User("ChuckTesta");
+    	user4 = new User("Aaron");
     	createCals();
     	addSomeEventsToCals();
     	addUsers();
     }
 
 	private void createCals() {
-		user1.createCalendar("Dangerous Plan");
+		user1.createCalendar("Dangerous Plans");
 		user2.createCalendar("Redneck Stuff");
 		user3.createCalendar("Hunting");
+		user4.createCalendar("Uni");
 		cals.addAll(user1.getCalendars());
     	cals.addAll(user2.getCalendars());
     	cals.addAll(user3.getCalendars());
+    	cals.addAll(user4.getCalendars());
 	}
 
 	private void addSomeEventsToCals() {
@@ -51,12 +54,15 @@ public class Bootstrap extends Job {
 		UserDatabase.addUser(user1);
 		UserDatabase.addUser(user2);
 		UserDatabase.addUser(user3);
+		UserDatabase.addUser(user4);
 		user1.setPassword("dangerousdan");
 		user2.setPassword("texasman");
 		user3.setPassword("nopeitschucktesta");
+		user4.setPassword("mygoateerocks");
 		user1.save();
 		user2.save();
 		user3.save();
+		user4.save();
 	}
  
 }

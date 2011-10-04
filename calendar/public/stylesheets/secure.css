@@ -27,6 +27,18 @@ A:HOVER {
 	left: 380px;
 }
 
+#loginInfos {
+	font-family: sans-serif;
+	font-size: 11pt;
+	padding: 10px;
+	border: 6px ridge red;
+	margin: auto;
+	width: 400px;
+	height: 100px;
+	positon: absolute;
+	
+}
+
 #login {
     width: 500px;
     margin: 50px auto;
@@ -91,7 +103,7 @@ A:HOVER {
 	margin-top: 50px;
 	min-width: 50px;
 	position: relative;
-	top: -180px;
+	top: -160px;
 }
 
 #newAccount-field input {
