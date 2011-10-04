@@ -4,12 +4,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.NoSuchElementException;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
-
-import com.sun.tools.internal.ws.wsdl.framework.NoSuchEntityException;
 
 import play.db.jpa.Model;
 
@@ -73,7 +72,7 @@ public class User extends Model {
 				return c;
 			}
 		}
-		throw new NoSuchEntityException(calendarname);
+		throw new NoSuchCalendarException(calendarname);
 	}
 
 }
