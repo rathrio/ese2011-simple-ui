@@ -1,0 +1,13 @@
+Answers:
+
+1. Explain how a typical HTTP request is processed with the framework (the request lifecycle)
+
+As the framework receives a HTTP request, the request gets routed to the corresponding action method in a controller class.
+Most of the time, there are some methods in a model, which need to be invoked then. So the application code required is executed.
+At the end of that specific controller action, there's usually a render() - method, which means, that there is a complex view to be generated.
+Therefore, a template file is rendered and the result of that action method gets returned as an HTTP response.
+
+2. How could you test user interfaces with the testing facilities in play! framework?
+
+Selenium tests, which basically test scenarios in your browser when the view is rendered. According to the play! documentation, a selenium test suite is typically written as an HTML file and it even lets you use loops and conditional blocks in order to write more complex tests.
+
