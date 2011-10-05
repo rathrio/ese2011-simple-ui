@@ -9,5 +9,5 @@ Therefore, a template file is rendered and the result of that action method gets
 
 2. How could you test user interfaces with the testing facilities in play! framework?
 
-Selenium tests, which basically test scenarios in your browser when the view is rendered. According to the play! documentation, a selenium test suite is typically written as an HTML file and it even lets you use loops and conditional blocks in order to write more complex tests.
+Selenium tests, which basically test scenarios in your browser when a certain view is rendered. According to the play! documentation, a selenium test suite is typically written as an HTML file and it even lets you use loops and conditional blocks in order to write more complex tests.
 
