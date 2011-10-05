@@ -57,7 +57,6 @@ public class Calendar implements Iterable<Event> {
 		return owner.equals(user);
 	}
 
-	@Override
 	public Iterator<Event> iterator() {
 		Collections.sort(this.events);
 		return this.events.iterator();

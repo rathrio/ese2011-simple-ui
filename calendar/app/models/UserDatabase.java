@@ -2,8 +2,6 @@ package models;
 
 import java.util.ArrayList;
 
-import com.sun.tools.internal.ws.wsdl.framework.NoSuchEntityException;
-
 public class UserDatabase {
 	
 	public static ArrayList<User> users = new ArrayList<User>();
@@ -24,7 +22,7 @@ public class UserDatabase {
 				return otherUsers;
 			}
 		}
-		throw new NoSuchEntityException(user.getName());
+		throw new NoSuchUserException(user.getName());
 	}
 	
 	public static User getUserNamed(String name) {
@@ -33,7 +31,7 @@ public class UserDatabase {
 				return u;
 			}
 		}
-		throw new NoSuchEntityException(name);
+		throw new NoSuchUserException(name);
 	}
 
 }
